@@ -57,4 +57,10 @@ comgr_*
 *.pkl
 site/
 master_schedule.py
+.mypy_cache
+*.egg
+*.whl
+*.tar.gz
+*.zip
+*.tar           
 

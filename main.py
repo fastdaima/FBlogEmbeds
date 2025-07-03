@@ -8,6 +8,8 @@ sqlite3.enable_callback_tracebacks(True)
 
 # embeddings model - will come to it later
 def scrape_blog_data():
+    # scrape blog data save into sqlite db
+    # the data columns are :
     pass
 
 def extract_rows():
@@ -54,9 +56,8 @@ def embeddings(db_path, input_path, table_name='embeddings', sql=None, batch_siz
         )
     if sql:
         rows = db.query(sql)
-        print(len(rows))
         count_sql = 'select count(*) as c from ({})'.format(sql)
-        expected_length = next(db.query(count_sql)['c'])
+        expected_length = next(db.query(count_sql))['c']
     else:
         raise ValueError("Only sqlite db is supported")
 
@@ -85,7 +86,7 @@ def embeddings(db_path, input_path, table_name='embeddings', sql=None, batch_siz
             # create  embeddings
             pass
 
-
+    print(text_to_embed)
 
 embeddings(
     'data/tils.db',
